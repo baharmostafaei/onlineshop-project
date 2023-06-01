@@ -8,7 +8,7 @@ class PagesTest(TestCase):
         self.assertEqual(response.status_code, 200)
     
     def test_home_page_by_name(self):
-        response = self.client.get(reverse('home page'))
+        response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
 
     def test_about_us_page(self):
@@ -16,7 +16,7 @@ class PagesTest(TestCase):
         self.assertEqual(response.status_code, 200)
     
     def test_about_us_page_by_name(self):
-        response = self.client.get(reverse('about us'))
+        response = self.client.get(reverse('aboutus'))
         self.assertEqual(response.status_code, 200)
 
         
