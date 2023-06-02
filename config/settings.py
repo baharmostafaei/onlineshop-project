@@ -38,14 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
+    # third party
     'crispy_forms',
     'crispy_bootstrap4',
+    'allauth',
+    'allauth.account',
 
-
+    # locals
     'accounts', 
     'pages',
 ]
+
+
+
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -112,6 +119,17 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+AUTHENTICATION_BACKENDS = [
+    #Django allauth
+   
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Internationalization
