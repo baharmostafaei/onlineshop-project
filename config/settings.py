@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []#'127.0.0.1', 'localhost', 'herokuapp.com'
 
 # Application definition
 
@@ -133,7 +133,14 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+'''
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "youraccount@gmail.com"
+EMAIL_HOST_PASSWORD = "your account password"
+'''
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
