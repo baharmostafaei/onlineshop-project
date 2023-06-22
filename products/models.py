@@ -36,6 +36,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
+
+    def get_absolute_url(self):
+        return reverse("product_detail", args=[self.product.id])
+    
     
 
 
