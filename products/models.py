@@ -3,6 +3,11 @@ from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 
 
+class ActiveCommentManager(models.Manager):
+    def get_queryset(self):
+        return super(ActiveCommentManager, self).get_queryset().filter(active=True)
+
+
 class Product(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
@@ -33,6 +38,11 @@ class Comment(models.Model):
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
+     
+    # Manager
+    objects = models.Manager()
+    active_comment_manager = ActiveCommentManager()
+ 
 
     def __str__(self):
         return self.body
