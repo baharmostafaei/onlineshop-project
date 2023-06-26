@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'allauth',
     'allauth.account',
+    'rosetta',
 
     # locals
     'accounts.apps.AccountsConfig', 
@@ -148,6 +149,10 @@ EMAIL_HOST_PASSWORD = "your account password"
 
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'fa'
+LANGUAGES = (
+    ('en', 'English'),
+    ('fa', 'Persian'),
+)
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Tehran'
 USE_I18N = True

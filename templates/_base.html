@@ -127,6 +127,14 @@
           <!-- Main Content Wrapper Start -->
           
         </div>
+
+{% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
         {% block content %}{% endblock content %}
           <footer class="footer">
             <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">

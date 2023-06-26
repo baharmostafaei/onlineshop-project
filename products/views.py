@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
+from django.contrib import messages
+from django.http import HttpResponse
 
 from .models import Product, Comment
 from .forms import CommentForm
+
 
 class ProductListVieW(generic.ListView):
     # model = Product
