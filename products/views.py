@@ -5,8 +5,6 @@ from django.http import HttpResponse
 
 from .models import Product, Comment
 from .forms import CommentForm
-
-
 class ProductListVieW(generic.ListView):
     # model = Product
     queryset = Product.objects.filter(active=True)

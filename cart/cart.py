@@ -38,7 +38,7 @@ class Cart:
         cart = self.cart.copy()
 
         for product in products:
-            cart[str(product_id)]['product_obj'] = product
+            cart[str(product.id)]['product_obj'] = product
 
         for item in cart.values():
             yield item 
