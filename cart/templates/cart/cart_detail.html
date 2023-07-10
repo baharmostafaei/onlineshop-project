@@ -11,7 +11,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mb-md--50">
-                    <form class="cart-form" action="#">
                         <div class="row no-gutters">
                             <div class="col-12">
                                 <div class="table-content table-responsive">
@@ -29,13 +28,17 @@
                                         <tbody>
                                             {% for item in cart %}
                                             <tr>
-                                                <td class="product-remove text-left"><a href=""><i class="flaticon flaticon-cross"></i></a></td>
-                                                <td class="product-thumbnail text-left">
-                                                    <img src="assets/img/products/prod-10-70x88.jpg" alt="Product Thumnail">
+                                                <td class="product-remove text-left"> 
+                                                    <a href="{% url 'cart:cart_remove' item.product_obj.id  %}">
+                                                        <i class="flaticon flaticon-cross"></i>
+                                                    </a>
                                                 </td>
-                                                <td class="product-name wide-column">
+                                                <td class="product-thumbnail text-left">
+                                                    <img src="assets/img/products/prod-10-70x88.jpg" alt="">
+                                                </td>
+                                                <td class="product-name ">
                                                     <h3>
-                                                        <a href="product-details.html">
+                                                        <a href="{{item.product_obj.get_absolute_url}}">
                                                             {{item.product_obj.title}}
                                                         </a>
                                                     </h3>
@@ -46,20 +49,27 @@
                                                     </span>
                                                 </td>
                                                 <td class="product-quantity">
-                                                    <div class="quantity">
-                                                        <input 
-                                                            type="number" 
-                                                            class="quantity-input" 
-                                                            name="qty" 
-                                                            id="qty-1" 
-                                                            value="{{item.quantity}}" 
-                                                            min="1"
-                                                        >
-                                                    </div>
+                                                    <form class="d-flex" action="{% url 'cart:cart_add' item.product_obj.id %}" method="POST"> 
+                                                        {% csrf_token %}
+                                                        <div class="quantity">
+                                                            <input 
+                                                                type="number" 
+                                                                class="quantity-input" 
+                                                                name="quantity" 
+                                                                id="qty-1" 
+                                                                value="{{item.quantity}}" 
+                                                                min="1"
+                                                            >
+                                                        </div>
+                                                        {{ item.product_update_quantity_form.inplace}}
+                                                        <button class="small" type="submit">
+                                                            <i class="fa fa-refresh"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                                 <td class="product-total-price">
                                                     <span class="product-price-wrapper">
-                                                        <span class="money">۲۹۶,۰۰۰ تومان</span>
+                                                        <span class="money">{{item.product_obj.price }}</span>
                                                     </span>
                                                 </td>
                                             </tr>
@@ -75,8 +85,7 @@
                                 <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
                 <div class="col-lg-4">
                     <div class="cart-collaterals">
                         <div class="cart-totals">
