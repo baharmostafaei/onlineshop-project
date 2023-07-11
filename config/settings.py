@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third party
+    'jalali_date',
     'crispy_forms',
     'crispy_bootstrap4',
     'allauth',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
+    'persian.apps.PersianConfig',
 ]
 
 

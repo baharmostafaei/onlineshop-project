@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load persian_translation_tags %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -84,11 +85,11 @@
                                   <li class="header-toolbar__item mini-cart-item">
                                       <a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
                                           <i class="flaticon flaticon-shopping-cart"></i>
-                                          <sup class="mini-cart-count">{{cart|length}}</sup>
+                                          <sup class="mini-cart-count">{{cart|length| num_to_persian}}</sup>
                                       </a>
                                   </li>
                                   <li class="header-toolbar__item user-info">
-                                      <a href="my-account.html" class="header-toolbar__btn">
+                                      <a href="" class="header-toolbar__btn">
                                           <i class="flaticon flaticon-user"></i>
                                       </a>
                                       <ul class="user-info-menu">
@@ -173,7 +174,7 @@
                                 </ul>
                             </div>
                             <div class="footer-widget">
-                                Codingyar.com © | all rights reserved
+                                BahareMostafaei © | all rights reserved
                             </div>
                         </div>
                     </div>

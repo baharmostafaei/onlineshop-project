@@ -2,7 +2,9 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load comment_tags %} 
+{% load  jalali_tags  %}
 {% load i18n %}
+{% load persian_translation_tags %}
 {% block page_title %} Products Detail{% endblock page_title %}
 {% block content %}
 
@@ -22,7 +24,7 @@
                             
                         </p>
                         <div class="my-5 py-5 product-price-wrapper mb--25">
-                            <span class="money text-success">{{product.price}} تومان </span>
+                            <span class="money text-success">{{product.price | num_to_persian}} تومان </span>
                             <span class="price-separator"></span>
                             <span class="money old-price text-danger"></span>
                         </div>
@@ -60,7 +62,7 @@
                             </a>
                             
                             <a class="m-0 product-data-tab__link nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="true">
-                                <span>نظرات ({{product.comments.all|only_active_comments|length}})</span>
+                                <span>نظرات ({{product.comments.all|only_active_comments|length| num_to_persian}})</span>
                             </a>
                         </div>
                         <div class="tab-content product-data-tab__content" id="product-tabContent">
@@ -85,15 +87,10 @@
                                                     <div class="d-flex flex-sm-row flex-row">
                                                         <img src="{% static 'img/others/comment-1.jpg'%}" alt="Review Avatar" class="review__avatar">
                                                         <div>
-                                                            <div class="review__meta">
-                                                                <span class="review__published-date">{{ comment.datetime_created}}</span>
-                                                                <strong class="review__author px-4">{{comment.author.username}}</strong>
-                                                                <span class="review__dash">-</span>
-                                                            </div>
-                                                            <div class="product-rating">
-                                                                <div class="m-0 star-rating star-five">
-                                                                    <span>Rated <strong class="rating">{{product.stars}}</strong> out of 5</span>
-                                                                </div>
+                                                            <div class="review__meta" dir="ltr">
+                                                                <span class="review__published-date">{{ comment.datetime_created | to_jalali:'%Y %B %d'| num_to_persian }}</span>
+                                                                <strong class="review__author px-4">{{comment.author.username|title}}</strong>
+                                                                <span class="review__dash"></span>
                                                             </div>
                                                         </div>
                                                     </div>
