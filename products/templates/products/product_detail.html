@@ -5,6 +5,7 @@
 {% load  jalali_tags  %}
 {% load i18n %}
 {% load persian_translation_tags %}
+{% load humanize %}
 {% block page_title %} Products Detail{% endblock page_title %}
 {% block content %}
 
@@ -24,7 +25,7 @@
                             
                         </p>
                         <div class="my-5 py-5 product-price-wrapper mb--25">
-                            <span class="money text-success">{{product.price | num_to_persian}} تومان </span>
+                            <span class="money text-success">{{product.price| intcomma:False | num_to_persian}} تومان </span>
                             <span class="price-separator"></span>
                             <span class="money old-price text-danger"></span>
                         </div>

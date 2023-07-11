@@ -3,7 +3,8 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load comment_tags %}
-
+{% load humanize %}
+{% load persian_translation_tags %}
 {% block content %}
 
 <div class="main-content-wrapper">
@@ -46,7 +47,7 @@
                                                 </td>
                                                 <td class="product-price">
                                                     <span class="product-price-wrapper">
-                                                        <span class="money">{{item.product_obj.price}} تومان</span>
+                                                        <span class="money">{{item.product_obj.price| intcomma:False| num_to_persian}} تومان</span>
                                                     </span>
                                                 </td>
                                                 <td class="product-quantity">
@@ -70,7 +71,7 @@
                                                 </td>
                                                 <td class="product-total-price">
                                                     <span class="product-price-wrapper">
-                                                        <span class="money">{{item.total_price }}</span>
+                                                        <span class="money">{{item.total_price| intcomma:False| num_to_persian }}</span>
                                                     </span>
                                                 </td>
                                             </tr>
@@ -106,17 +107,17 @@
                                         <span>{% trans "Total" %}</span>
                                     </div>
                                     <div class="cart-calculator__item--value">
-                                        <span>{{ cart.get_total_price}} {% trans "Toman" %}</span>
+                                        <span>{{ cart.get_total_price| intcomma:False| num_to_persian}} {% trans "Toman" %}</span>
                                     </div>
                                 </div>
                                 <div class="cart-calculator__item order-total">
                                     {% if cart %}
                                     <div class="cart-calculator__item--head">
-                                        <span> جمع کل با 20000 تومان هزینه پست</span>
+                                        <span> جمع کل با ۲۰,۰۰۰ تومان هزینه پست</span>
                                     </div>
                                     <div class="cart-calculator__item--value">
                                         <span class="product-price-wrapper">
-                                            <span class="money">{{cart.total_price_with_post}} {% trans "Toman" %}</span>
+                                            <span class="money">{{cart.total_price_with_post| intcomma:False| num_to_persian}} {% trans "Toman" %}</span>
                                         </span>
                                     </div>
                                     {% else %}

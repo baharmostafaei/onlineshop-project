@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rosetta',
+    'django.contrib.humanize',
 
     # locals
     'accounts.apps.AccountsConfig', 
