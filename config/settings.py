@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
     'persian.apps.PersianConfig',
+    'orders.apps.OrdersConfig',
 ]
 
 
