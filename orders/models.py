@@ -11,6 +11,7 @@ class Order(models.Model):
     email = models.EmailField(_("email"), max_length=254)
     mobile = models.CharField(max_length= 15, verbose_name=_("phone number"))
     address = models.CharField(_("address"), max_length=700)
+    zip_code = models.CharField(_("zip code"), max_length=15, blank=True)
     order_notes = models.CharField(_("order note"), max_length=700, blank=True)
 
     datetime_created = models.DateTimeField(auto_now_add=True)
