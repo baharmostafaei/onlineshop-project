@@ -85,23 +85,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for item in cart %}
                                             <tr>
-                                                <th>محصول شماره یک
-                                                    <strong><span>&#10005;</span>۲</strong>
+                                                <th> {{ item.product_obj.title}}
+                                                    <strong><span>&#10005;</span>{{item.quantity| num_to_persian}}</strong>
                                                 </th>
-                                                <td class="text-right">۲۹۶,۰۰۰ تومان</td>
+                                                <td class="text-right">{{item.total_price| intcomma:False| num_to_persian }} {% trans "Toman" %}</td>
                                             </tr>
-                                            <tr>
-                                                <th>محصول شماره دو
-                                                    <strong><span>&#10005;</span>۱</strong>
-                                                </th>
-                                                <td class="text-right">۵۸,۰۰۰ تومان</td>
-                                            </tr>
+                                            {% endfor %}
                                         </tbody>
                                         <tfoot>
                                             <tr class="cart-subtotal">
                                                 <th>مجموع</th>
-                                                <td class="text-right">۳۴۸,۰۰۰ تومان</td>
+                                                <td class="text-right">{{cart.total_price_with_post|intcomma:False| num_to_persian}} تومان</td>
                                             </tr>
                                         </tfoot>
                                     </table>
