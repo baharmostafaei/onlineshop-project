@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-09 14:01+0330\n"
-"PO-Revision-Date: 2023-07-09 14:02+0330\n"
+"POT-Creation-Date: 2023-07-15 17:32+0330\n"
+"PO-Revision-Date: 2023-07-15 17:34+0330\n"
 "Last-Translator:   <bharemostafaei@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,35 +18,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
 
-#: .\models.py:29
+#: .\models.py:17
+msgid "Product Image"
+msgstr "عکس محصول"
+
+#: .\models.py:30
 msgid "Very Bad"
 msgstr "خیلی بد "
 
-#: .\models.py:30
+#: .\models.py:31
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:31
+#: .\models.py:32
 msgid "Good"
 msgstr "متوسط"
 
-#: .\models.py:32
+#: .\models.py:33
 msgid "Very Good"
 msgstr "خوب "
 
-#: .\models.py:33
+#: .\models.py:34
 msgid "Amazing"
 msgstr "عالی"
 
-#: .\models.py:37
+#: .\models.py:38
 msgid "Comment's text"
 msgstr "متن نظر"
 
-#: .\models.py:38
+#: .\models.py:39
 msgid "Your Rate"
 msgstr "امتیاز شما به این محصول"
 
-#: .\templates\products\product_detail.html:33
+#: .\templates\products\product_detail.html:41
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
 
@@ -54,10 +58,19 @@ msgstr "اضافه به سبد خرید"
 msgid "Product description"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_detail.html:116
+#: .\templates\products\product_detail.html:112
 msgid "Enter you comment"
 msgstr "نظر خود را وارد کنید"
 
-#: .\templates\products\product_detail.html:121
+#: .\templates\products\product_detail.html:117
 msgid "submit"
 msgstr "ارسال"
+
+#: .\templates\products\product_detail.html:122
+msgid "To add comment you should login first."
+msgstr "برای کامنت گذاشتن ابتدا به حساب کاربری خود وارد شوید"
+
+#: .\templates\products\product_list.html:61
+#| msgid "Add to cart"
+msgid "Add to Cart"
+msgstr "اضافه به سبد خرید"
